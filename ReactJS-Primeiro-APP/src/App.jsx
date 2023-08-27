@@ -1,21 +1,17 @@
 import { useState } from "react";
 
 const App = () => {
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [idade, setIdade] = useState("");
-  const [user, setUser] = useState([]);
+  const [input, setInput] = useState("");
+  const [tarefas, setTarefas] = useState([
+    "Pagar a conta de luz",
+    "Estudar ReactJS",
+  ]);
 
   function handleRegister(e) {
     e.preventDefault();
 
-    alert("Usuário registrado com sucesso!");
-
-    setUser({
-      nome: nome,
-      idade: idade,
-      email: email,
-    });
+    setTarefas([...tarefas, input]);
+    setInput("");
   }
 
   return (
@@ -23,33 +19,13 @@ const App = () => {
       <h1>Cadastrando usuário</h1>
 
       <form onSubmit={handleRegister}>
-        <label>Name:</label>
+        <label>Nome da tarefa:</label>
         <br />
         <input
-          placeholder='Digite seu nome'
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
+          placeholder='Digite uma tarefa'
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
           type='text'
-        />
-        <br />
-
-        <label>Email:</label>
-        <br />
-        <input
-          placeholder='Digite seu email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type='email'
-        />
-        <br />
-
-        <label>Idade:</label>
-        <br />
-        <input
-          placeholder='Digite sua idade'
-          value={idade}
-          onChange={(e) => setIdade(e.target.value)}
-          type='number'
         />
         <br />
 
@@ -59,14 +35,11 @@ const App = () => {
       <br />
       <br />
 
-      <div>
-        <span>Bem-vindo: {user.nome}</span>
-        <br />
-        <span>Idade: {user.idade}</span>
-        <br />
-        <span>Email: {user.email}</span>
-        <br />
-      </div>
+      <ul>
+        {tarefas.map((tarefa) => (
+          <li key={tarefa}>{tarefa}</li>
+        ))}
+      </ul>
     </div>
   );
 };
