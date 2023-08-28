@@ -1,56 +1,43 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import "./style.css";
 
-function App() {
-  const [input, setInput] = useState("");
-  const [tarefas, setTarefas] = useState([
-    "Pagar a conta de luz",
-    "Estudar React JS",
-  ]);
+const App = () => {
+  const [nutri, setNutri] = useState([]);
 
   useEffect(() => {
-    const tarefasStorage = localStorage.getItem("@tarefa");
+    function loadAPi() {
+      let url = "https://sujeitoprogramador.com/rn-api/?api=posts";
 
-    if (tarefasStorage) {
-      setTarefas(JSON.parse(tarefasStorage));
+      fetch(url)
+        .then((r) => r.json())
+        .then((json) => {
+          console.log(json);
+          setNutri(json);
+        });
     }
+
+    loadAPi();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("@tarefa", JSON.stringify(tarefas));
-  }, [tarefas]);
-
-  function handleRegister(e) {
-    e.preventDefault();
-    setTarefas([...tarefas, input]);
-    setInput("");
-  }
-
   return (
-    <div>
-      <h1>Cadastrando usuario</h1>
+    <div className='container'>
+      <header>
+        <strong>React Nutri</strong>
+      </header>
 
-      <form onSubmit={handleRegister}>
-        <label>Nome da tarefa:</label>
-        <br />
-        <input
-          placeholder='Digite uma tarefa'
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <br />
-        <button type='submit'>Registrar</button>
-      </form>
-
-      <br />
-      <br />
-
-      <ul>
-        {tarefas.map((tarefa) => (
-          <li key={tarefa}>{tarefa}</li>
-        ))}
-      </ul>
+      {nutri.map((item) => {
+        return (
+          <article key={item.id} className='post'>
+            <strong className='titulo'>{item.title}</strong>
+            <img src={item.capa} alt={item.title} className='capa' />
+            <p className='subtitulo'>{item.subtitulo}</p>
+            {/* <h1>Categoria: {item.categoria}</h1> */}
+            <a className='botao'>Acessar</a>
+          </article>
+        );
+      })}
     </div>
   );
-}
+};
 
 export default App;
