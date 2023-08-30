@@ -1,7 +1,7 @@
-const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+import { Title } from "./styled";
 
-export default Home
+const Home = () => {
+  return <Title>Home</Title>;
+};
+
+export default Home;
