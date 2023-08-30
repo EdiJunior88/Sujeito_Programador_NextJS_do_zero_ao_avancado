@@ -161,12 +161,14 @@
 
 <hr>
 
-<strong>Link do projeto: </strong>Favoritar Repositórios<a href="https://projeto-favoritar-repositorios.vercel.app/">https://projeto-favoritar-repositorios.vercel.app/</a>
+<strong>Link do projeto: </strong>Favoritar Repositórios <a href="https://projeto-favoritar-repositorios.vercel.app/">https://projeto-favoritar-repositorios.vercel.app/</a>
 
 <hr>
 
 <h3>Status do Deploy</h3>
 
+Favoritar Repositórios
+<br>
 ![Vercel](https://vercelbadge.vercel.app/api/EdiJunior88/Sujeito_Programador_NextJS_do_zero_ao_avancado?style=for-the-badge)
 
 <hr>
