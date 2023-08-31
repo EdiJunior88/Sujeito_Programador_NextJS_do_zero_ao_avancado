@@ -83,7 +83,7 @@ const Home = () => {
         Meus Repositórios
       </h1>
 
-      <Form onSubmit={handleSubmit} error={alert}>
+      <Form onSubmit={handleSubmit} onError={alert}>
         <input
           type='text'
           placeholder='Adicionar Repositório'
