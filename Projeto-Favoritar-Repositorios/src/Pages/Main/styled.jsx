@@ -11,8 +11,8 @@ export const Container = styled.div`
   h1 {
     font-size: 20px;
     display: flex;
-    flex-direction: row;
     align-items: center;
+    flex-direction: row;
 
     svg {
       margin-right: 10px;
@@ -34,13 +34,13 @@ export const Form = styled.form`
   }
 `;
 
-//Criando animação do botão submit
+//Criando animcação do botao
 const animate = keyframes`
   from{
     transform: rotate(0deg);
   }
 
-  to {
+  to{
     transform: rotate(360deg);
   }
 `;
@@ -66,7 +66,41 @@ export const SubmitButton = styled.button.attrs((props) => ({
   ${(props) =>
     props.loading &&
     css`
-    svg {
-      animation: ${animate} 2s linear infinite;
-  `}
+      svg {
+        animation: ${animate} 2s linear infinite;
+      }
+    `}
+`;
+
+export const List = styled.ul`
+  list-style: none;
+  margin-top: 20px;
+
+  li {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    & + li {
+      border-top: 1px solid #eee;
+    }
+
+    a {
+      color: #0d2636;
+      text-decoration: none;
+    }
+  }
+`;
+
+export const DeleteButton = styled.button.attrs({
+  type: "button",
+})`
+  background: transparent;
+  color: #0d2636;
+  border: 0;
+  padding: 8px 7px;
+  outline: 0;
+  border-radius: 4px;
 `;
