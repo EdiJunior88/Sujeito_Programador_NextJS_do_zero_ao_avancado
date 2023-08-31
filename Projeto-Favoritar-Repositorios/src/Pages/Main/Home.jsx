@@ -2,6 +2,7 @@ import { Container, Form, SubmitButton, List, DeleteButton } from "./styled";
 import { FaGithub, FaPlus, FaSpinner, FaBars, FaTrash } from "react-icons/fa";
 import { useCallback, useEffect, useState } from "react";
 import API from "../../Services/API";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [newRepo, setNewRepo] = useState("");
@@ -110,9 +111,9 @@ const Home = () => {
               {repo.name}
             </span>
 
-            <a href=''>
+            <Link to={`/repositorio/${encodeURIComponent(repo.name)}`}>
               <FaBars size={20} />
-            </a>
+            </Link>
           </li>
         ))}
       </List>

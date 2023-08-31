@@ -1,7 +1,9 @@
-const Repositorio = () => {
-  return (
-    <div>Repositorio</div>
-  )
-}
+import { useParams } from 'react-router-dom'
 
-export default Repositorio
+const Repositorio = ({ match }) => {
+  const name = useParams();
+
+  return <h1>{decodeURIComponent(name.repositorio)}</h1>;
+};
+
+export default Repositorio;
