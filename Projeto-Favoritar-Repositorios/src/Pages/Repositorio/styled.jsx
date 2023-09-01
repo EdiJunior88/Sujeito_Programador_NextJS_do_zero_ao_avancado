@@ -112,6 +112,7 @@ export const PageActions = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 15px;
 
   button {
     outline: 0;
@@ -130,6 +131,11 @@ export const PageActions = styled.div`
 
 export const FilterList = styled.div`
   margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+
 
   button {
     outline: 0;
