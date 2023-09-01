@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { Container, Loading, Owner, BackButton } from "./styled";
+import { Container, Loading, Owner, BackButton, IssuesList } from "./styled";
 import { useEffect, useState } from "react";
 import API from "../../Services/API";
 import { FaArrowLeft } from "react-icons/fa";
@@ -45,11 +45,37 @@ const Repositorio = () => {
       <BackButton to='/'>
         <FaArrowLeft color='#000' size={30} />
       </BackButton>
+
       <Owner>
         <img src={repositorio.owner.avatar_url} alt={repositorio.owner.login} />
         <h1>{repositorio.name}</h1>
         <p>{repositorio.description}</p>
       </Owner>
+
+      <IssuesList>
+        {issues.map((issue) => (
+          <li key={issue.id}>
+            <img src={issue.user.avatar_url} alt={issue.user.login} />
+
+            <div>
+              <strong>
+                <a
+                  href={issue.html_url}
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  {issue.title}
+                </a>
+
+                {issue.labels.map((label) => (
+                  <span key={label.id}>{label.name}</span>
+                ))}
+
+                <p>{issue.user.login}</p>
+              </strong>
+            </div>
+          </li>
+        ))}
+      </IssuesList>
     </Container>
   );
 };
