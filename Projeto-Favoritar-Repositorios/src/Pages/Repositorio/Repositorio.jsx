@@ -1,5 +1,12 @@
 import { useParams } from "react-router-dom";
-import { Container, Loading, Owner, BackButton, IssuesList } from "./styled";
+import {
+  Container,
+  Loading,
+  Owner,
+  BackButton,
+  IssuesList,
+  PageActions,
+} from "./styled";
 import { useEffect, useState } from "react";
 import API from "../../Services/API";
 import { FaArrowLeft } from "react-icons/fa";
@@ -9,6 +16,7 @@ const Repositorio = () => {
   const [repositorio, setRepositorio] = useState({});
   const [issues, setIssues] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     async function load() {
@@ -31,6 +39,28 @@ const Repositorio = () => {
 
     load();
   }, [name.repositorio]);
+
+  useEffect(() => {
+    async function loadIssue() {
+      const nomeRepo = decodeURIComponent(name.repositorio);
+
+      const response = await API.get(`/repos/${nomeRepo}/issues`, {
+        params: {
+          state: "open",
+          page,
+          per_page: 5,
+        },
+      });
+
+      setIssues(response.data);
+    }
+
+    loadIssue();
+  }, [name.repositorio, page]);
+
+  function handlePage(action) {
+    setPage(action === "back" ? page - 1 : page + 1);
+  }
 
   if (loading) {
     return (
@@ -76,6 +106,19 @@ const Repositorio = () => {
           </li>
         ))}
       </IssuesList>
+
+      <PageActions>
+        <button
+          type='button'
+          onClick={() => handlePage("back")}
+          disabled={page < 2}>
+          Voltar
+        </button>
+
+        <button type='button' onClick={() => handlePage("next")}>
+          Próximo
+        </button>
+      </PageActions>
     </Container>
   );
 };
