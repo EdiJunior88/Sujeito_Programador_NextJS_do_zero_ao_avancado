@@ -163,12 +163,14 @@
 
 <strong>Link do projeto: </strong>Favoritar Repositórios <a href="https://projeto-favoritar-repositorios.vercel.app/">https://projeto-favoritar-repositorios.vercel.app/</a>
 
+<br>
+
+<strong>Board tarefas <a href="https://projeto-board-tarefas-edijunior88.vercel.app/">https://projeto-board-tarefas-edijunior88.vercel.app/</a></strong>
+
 <hr>
 
 <h3>Status do Deploy</h3>
 
-Favoritar Repositórios
-<br>
 ![Vercel](https://vercelbadge.vercel.app/api/EdiJunior88/Sujeito_Programador_NextJS_do_zero_ao_avancado?style=for-the-badge)
 
 <hr>
