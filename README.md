@@ -161,11 +161,13 @@
 
 <hr>
 
-<strong>Link do projeto: </strong>Favoritar Repositórios <a href="https://projeto-favoritar-repositorios.vercel.app/">https://projeto-favoritar-repositorios.vercel.app/</a>
+<strong>Link do projeto: </strong>
 
 <br>
 
-<strong>Board tarefas <a href="https://projeto-board-tarefas-edijunior88.vercel.app/">https://projeto-board-tarefas-edijunior88.vercel.app/</a></strong>
+Favoritar Repositórios <a href="https://projeto-favoritar-repositorios.vercel.app/">https://projeto-favoritar-repositorios.vercel.app/</a>
+
+Board tarefas <a href="https://projeto-board-tarefas-edijunior88.vercel.app/">https://projeto-board-tarefas-edijunior88.vercel.app/</a>
 
 <hr>
 
