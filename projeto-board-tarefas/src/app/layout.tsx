@@ -1,6 +1,7 @@
 import "../../styles/globals.css";
 import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
+import { Header } from "../components/header/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='pt-br'>
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
