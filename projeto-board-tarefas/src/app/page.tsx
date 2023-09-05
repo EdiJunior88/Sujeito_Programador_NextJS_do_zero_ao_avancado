@@ -1,9 +1,8 @@
-import React from "react";
 import styles from "../../styles/page.module.css";
 import Image from "next/image";
 import heroImg from "../../public/assets/hero.png";
 
-export default function Page() {
+const Page = () => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -33,4 +32,6 @@ export default function Page() {
       </main>
     </div>
   );
-}
+};
+
+export default Page;

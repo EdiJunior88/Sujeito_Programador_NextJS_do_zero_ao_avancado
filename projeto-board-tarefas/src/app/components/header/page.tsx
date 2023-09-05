@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./header.module.css";
 
-export const Header = () => {
+const Header = () => {
   return (
     <header className={styles.header}>
       <section className={styles.content}>
@@ -22,3 +22,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;
