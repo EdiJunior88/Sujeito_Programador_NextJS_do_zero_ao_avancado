@@ -1,6 +1,5 @@
 "use client";
 import "../../styles/globals.css";
-import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
 import Header from "./components/header/page";
 import { SessionProvider } from "next-auth/react";
@@ -13,27 +12,7 @@ const roboto = Roboto({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  icons: [
-    {
-      rel: "icon",
-      type: "image/png",
-      sizes: "32x32",
-      url: "favicon-16x16.png",
-    },
-    {
-      rel: "icon",
-      type: "image/png",
-      sizes: "16x16",
-      url: "/favicon/favicon-16x16.png",
-    },
-    {
-      rel: "apple-touch-icon",
-      sizes: "180x180",
-      url: "/favicon/apple-touch-icon.png",
-    },
-  ],
-};
+
 
 export default function RootLayout({
   children,
