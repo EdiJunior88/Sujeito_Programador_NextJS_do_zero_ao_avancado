@@ -1,8 +1,11 @@
-'use client'
+"use client";
 import "../../styles/globals.css";
 import { Inter, Roboto } from "next/font/google";
 import Header from "./components/header/page";
 import { SessionProvider } from "next-auth/react";
+import { createContext } from "react";
+
+const Context = createContext({});
 
 // const inter = Inter({ subsets: ["latin"] });
 
