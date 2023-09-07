@@ -3,7 +3,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 
 const Header = () => {
-  const { data: session, status } = useSession();
+  // const { data: session, status } = useSession();
 
   return (
     <header className={styles.header}>
@@ -14,14 +14,19 @@ const Header = () => {
               Tarefas<span>+</span>
             </h1>
           </Link>
-          {session?.user && (
+          
             <Link href='/dashboard' className={styles.link}>
               Meu Painel
             </Link>
-          )}
+  
+          {/* {session?.user && (
+            <Link href='/dashboard' className={styles.link}>
+              Meu Painel
+            </Link>
+          )} */}
         </nav>
 
-        {status === "loading" ? (
+        {/* {status === "loading" ? (
           <></>
         ) : session ? (
           <button className={styles.loginButton} onClick={() => signOut()}>
@@ -33,7 +38,7 @@ const Header = () => {
             onClick={() => signIn("google")}>
             Acessar
           </button>
-        )}
+        )} */}
       </section>
     </header>
   );
