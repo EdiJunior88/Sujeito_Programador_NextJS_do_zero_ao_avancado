@@ -4,12 +4,13 @@ import { Inter, Roboto } from "next/font/google";
 import Header from "./components/header/page";
 import { SessionProvider } from "next-auth/react";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 const roboto = Roboto({
   weight: ["400", "500", "700"],
   subsets: ["latin"],
   display: "swap",
+  preload: true,
 });
 
 export default function RootLayout({
