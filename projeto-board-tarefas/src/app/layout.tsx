@@ -25,9 +25,11 @@ export default function RootLayout({
     <html lang='pt-br'>
       <link rel='icon' href='favicon.ico' type='image/png' sizes='32x32' />
       <body className={roboto.className}>
-        <SessionProvider>
-          <Header />
-          {children}
+        <SessionProvider session={null}>
+          <Context.Provider value={{}}>
+            <Header />
+            {children}
+          </Context.Provider>
         </SessionProvider>
       </body>
     </html>
