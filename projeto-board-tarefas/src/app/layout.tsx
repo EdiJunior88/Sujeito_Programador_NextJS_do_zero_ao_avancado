@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import "../../styles/globals.css";
 import { Inter, Roboto } from "next/font/google";
 import Header from "./components/header/page";
@@ -6,7 +6,7 @@ import { SessionProvider } from "next-auth/react";
 
 // const inter = Inter({ subsets: ["latin"] });
 
-const roboto = Roboto({
+export const roboto = Roboto({
   weight: ["400", "500", "700"],
   subsets: ["latin"],
   display: "swap",
