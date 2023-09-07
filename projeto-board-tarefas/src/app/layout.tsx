@@ -1,13 +1,8 @@
-"use client";
 import "../../styles/globals.css";
-import { Inter, Roboto } from "next/font/google";
+import { Roboto } from "next/font/google";
 import Header from "./components/header/page";
 import { SessionProvider } from "next-auth/react";
-import { createContext } from "react";
-
-const Context = createContext({});
-
-// const inter = Inter({ subsets: ["latin"] });
+import { NextAuthProvider } from "./providers";
 
 export const roboto = Roboto({
   weight: ["400", "500", "700"],
@@ -25,12 +20,10 @@ export default function RootLayout({
     <html lang='pt-br'>
       <link rel='icon' href='favicon.ico' type='image/png' sizes='32x32' />
       <body className={roboto.className}>
-        <SessionProvider session={null}>
-          <Context.Provider value={{}}>
-            <Header />
-            {children}
-          </Context.Provider>
-        </SessionProvider>
+        <NextAuthProvider>
+          <Header />
+          {children}
+        </NextAuthProvider>
       </body>
     </html>
   );
