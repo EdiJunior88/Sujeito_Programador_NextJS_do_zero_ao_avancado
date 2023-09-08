@@ -1,7 +1,6 @@
 import "../../styles/globals.css";
 import { Roboto } from "next/font/google";
 import Header from "./components/header/page";
-import { SessionProvider } from "next-auth/react";
 import { NextAuthProvider } from "./providers";
 
 export const roboto = Roboto({
