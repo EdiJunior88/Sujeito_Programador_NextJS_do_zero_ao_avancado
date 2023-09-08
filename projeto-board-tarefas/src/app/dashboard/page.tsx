@@ -10,6 +10,8 @@ interface DashboardProps {
 export default async function Dashboard({ children }: DashboardProps) {
   const user = await getCurrentUser();
 
+  //Se o usuário deslogar ou tentar abrir outra página deslogado
+  //Será redirecionado para a página principal (Home)
   if (!user) {
     return PageRedirectHome();
   }
