@@ -3,11 +3,11 @@ import styles from "./dashboard.module.css";
 import Head from "next/head";
 import PageRedirectHome from "../[others]/page";
 
-interface DashboardProps {
+interface DashboardLayoutProps {
   children?: React.ReactNode;
 }
 
-export default async function Dashboard({ children }: DashboardProps) {
+export default async function Dashboard({ children }: DashboardLayoutProps) {
   const user = await getCurrentUser();
 
   //Se o usuário deslogar ou tentar abrir outra página deslogado
