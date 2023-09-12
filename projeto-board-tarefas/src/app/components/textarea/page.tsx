@@ -1,7 +1,7 @@
 import styles from "./textarea.module.css";
 import { ChangeEvent, FC } from "react";
 
-interface TextareaProps {
+export interface TextareaProps {
   placeholder?: string;
   value: string;
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
