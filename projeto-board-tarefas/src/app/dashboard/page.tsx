@@ -2,9 +2,11 @@ import { getCurrentUser } from "@/lib/session";
 import styles from "./dashboard.module.css";
 import Head from "next/head";
 import PageRedirectHome from "../[others]/page";
-import { TextArea } from "../components/textarea/page";
+import TextArea from "../components/textarea/page";
+import { FiShare2 } from "react-icons/fi";
+import { FaTrash } from "react-icons/fa";
 
-export default async function Dashboard() {
+const Dashboard = async () => {
   const user = await getCurrentUser();
 
   //Se o usuário deslogar ou tentar abrir outra página deslogado
@@ -38,7 +40,29 @@ export default async function Dashboard() {
             </form>
           </div>
         </section>
+
+        <section className={styles.taskContainer}>
+          <h1>Minhas Tarefas</h1>
+
+          <article className={styles.task}>
+            <div className={styles.tagContainer}>
+              <label className={styles.tag}>PÚBLICO</label>
+              <button className={styles.shareButton}>
+                <FiShare2 size={22} color='#3183ff' />
+              </button>
+            </div>
+
+            <div className={styles.taskContent}>
+              <p>Minha primeira tarefa de exemplo!</p>
+              <button className={styles.trashButton}>
+                <FaTrash size={24} color='#ea3140' />
+              </button>
+            </div>
+          </article>
+        </section>
       </main>
     </div>
   );
-}
+};
+
+export default Dashboard;
