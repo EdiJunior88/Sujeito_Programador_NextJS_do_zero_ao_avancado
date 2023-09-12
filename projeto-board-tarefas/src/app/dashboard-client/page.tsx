@@ -1,6 +1,6 @@
 "use client";
 import styles from "./dashboard-client.module.css";
-// import Textarea from "../components/textarea/page";
+import TextArea from "../components/textarea/TextAreaComponent";
 import { FiShare2 } from "react-icons/fi";
 import { FaTrash } from "react-icons/fa";
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -30,11 +30,11 @@ const DashboardClient = () => {
           <h1 className={styles.title}>Qual a sua tarefa?</h1>
 
           <form onSubmit={handleRegisterTask}>
-            <textarea
-              className={styles.textarea}
+            <TextArea
               placeholder='Digite qual sua tarefa...'
               value={input}
-              onChange={handleChange}></textarea>
+              onChange={handleChange}
+            />
 
             <div className={styles.checkBoxArea}>
               <input
