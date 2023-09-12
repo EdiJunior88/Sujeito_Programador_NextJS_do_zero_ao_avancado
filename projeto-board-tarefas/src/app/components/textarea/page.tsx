@@ -1,10 +1,12 @@
-import { TextareaHTMLAttributes } from "react";
 import styles from "./textarea.module.css";
+import React, { TextareaHTMLAttributes } from "react";
 
-const TextArea = ({
-  ...rest
-}: TextareaHTMLAttributes<HTMLTextAreaElement | HTMLInputElement>) => {
-  return <textarea className={styles.textarea} {...rest}></textarea>;
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  // Você pode adicionar suas próprias propriedades personalizadas aqui, se necessário.
+}
+
+const Textarea: React.FC<TextareaProps> = ({ ...rest }) => {
+  return <textarea {...rest} />;
 };
 
-export default TextArea;
+export default Textarea;
