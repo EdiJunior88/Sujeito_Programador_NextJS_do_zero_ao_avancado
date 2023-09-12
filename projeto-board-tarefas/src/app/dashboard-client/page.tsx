@@ -31,6 +31,7 @@ const DashboardClient = () => {
 
           <form onSubmit={handleRegisterTask}>
             <textarea
+              className={styles.textarea}
               placeholder='Digite qual sua tarefa...'
               value={input}
               onChange={handleChange}></textarea>
