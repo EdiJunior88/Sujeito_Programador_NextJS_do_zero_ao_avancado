@@ -1,7 +1,6 @@
-import { TextareaHTMLAttributes } from "react";
 import styles from "./textarea.module.css";
 
-const TextArea = ({ ...rest }: TextareaHTMLAttributes<HTMLTextAreaElement>) => {
+const TextArea = ({ ...rest }) => {
   return <textarea className={styles.textarea} {...rest}></textarea>;
 };
 
