@@ -1,8 +1,25 @@
-import { HTMLProps } from "react";
 import styles from "./textarea.module.css";
+import { ChangeEvent, FC } from "react";
 
-const TextArea = (props: HTMLProps<HTMLTextAreaElement>) => {
-  return <textarea className={styles.textarea} {...props}></textarea>;
+interface TextareaProps {
+  placeholder?: string;
+  value: string;
+  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+}
+
+const Textarea: FC<TextareaProps> = ({
+  placeholder,
+  value,
+  onChange,
+}) => {
+  return (
+    <textarea
+      className={styles.textarea}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+    />
+  );
 };
 
-export default TextArea;
+export default Textarea;
