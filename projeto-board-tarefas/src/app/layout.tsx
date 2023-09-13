@@ -3,8 +3,6 @@ import { Roboto } from "next/font/google";
 import Header from "./components/header/HeaderComponent";
 import { NextAuthProvider } from "./providers";
 
-export const revalidate = 60
-
 export const roboto = Roboto({
   weight: ["400", "500", "700"],
   subsets: ["latin"],

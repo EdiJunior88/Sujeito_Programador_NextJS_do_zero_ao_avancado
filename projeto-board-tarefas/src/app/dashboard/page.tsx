@@ -4,6 +4,8 @@ import Head from "next/head";
 import PageRedirectHome from "../[others]/page";
 import DashboardClient from "../dashboard-client/page";
 
+export const revalidate = 3600 //revalida os dados no máximo a cada hora
+
 const Dashboard = async () => {
   interface InterfaceDashboard {
     user: { email: string };
