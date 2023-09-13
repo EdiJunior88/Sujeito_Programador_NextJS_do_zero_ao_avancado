@@ -1,4 +1,4 @@
-import { getCurrentUser } from "@/lib/session";
+import { getCurrentUser } from "@/app/lib/session";
 import styles from "./dashboard.module.css";
 import Head from "next/head";
 import PageRedirectHome from "../[others]/page";
