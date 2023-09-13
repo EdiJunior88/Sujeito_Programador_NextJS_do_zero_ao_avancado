@@ -5,23 +5,34 @@ import PageRedirectHome from "../[others]/page";
 import DashboardClient from "../dashboard-client/page";
 
 const Dashboard = async () => {
-  const user = await getCurrentUser();
-
-  //Se o usuário deslogar ou tentar abrir outra página deslogado
-  //Será redirecionado para a página principal (Home)
-  if (!user) {
-    return PageRedirectHome();
+  interface InterfaceDashboard {
+    user: { email: string };
   }
 
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Meu painel de tarefas</title>
-      </Head>
+  //Verifica se getCurrentUser() retorna um valor válido antes de desestruturar a propriedade user
+  try {
+    const result = await getCurrentUser();
 
-      <DashboardClient />
-    </div>
-  );
+    if (!result) {
+      //Se o getCurrentUser() for indefinido ou nulo, retorna para a página inicial.
+      return PageRedirectHome();
+    }
+
+    const { user } = result as InterfaceDashboard;
+
+    return (
+      <div className={styles.container}>
+        <Head>
+          <title>Meu painel de tarefas</title>
+        </Head>
+        <DashboardClient user={user} />
+      </div>
+    );
+  } catch (error) {
+    //Lidando com quaisquer outros erros que possam ocorrer durante getCurrentUser()
+    console.error("Error: ", error);
+    return null; //Retorna uma mensagem de erro
+  }
 };
 
 export default Dashboard;

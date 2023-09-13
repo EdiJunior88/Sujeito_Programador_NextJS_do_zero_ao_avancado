@@ -4,24 +4,45 @@ import TextArea from "../components/textarea/TextAreaComponent";
 import { FiShare2 } from "react-icons/fi";
 import { FaTrash } from "react-icons/fa";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { db } from "../../services/firebaseConnection";
+import { addDoc, collection } from "firebase/firestore";
 
-const DashboardClient = () => {
+interface InterfaceDashboardClient {
+  user: { email: string } | undefined;
+}
+
+const DashboardClient = ({ user }: InterfaceDashboardClient) => {
   const [input, setInput] = useState("");
   const [publicTask, setPublicTask] = useState(false);
 
-  function handleChangePublic(event: ChangeEvent<HTMLInputElement>) {
+  const handleChangePublic = (event: ChangeEvent<HTMLInputElement>) => {
     setPublicTask(event.target.checked);
-  }
+  };
 
-  function handleRegisterTask(event: FormEvent) {
+  const handleRegisterTask = async (event: FormEvent) => {
     event.preventDefault();
 
     if (input === "") return;
-  }
 
-  function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
+    //Insere os dados no Firebase (banco de dados)
+    try {
+      await addDoc(collection(db, "tarefas"), {
+        tarefa: input,
+        created: new Date(),
+        user: { user },
+        public: publicTask,
+      });
+
+      setInput("");
+      setPublicTask(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setInput(event.target.value);
-  }
+  };
 
   return (
     <main className={styles.main}>
