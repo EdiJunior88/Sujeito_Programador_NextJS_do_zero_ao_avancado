@@ -3,10 +3,21 @@ import styles from "./dashboard.module.css";
 import Head from "next/head";
 import PageRedirectHome from "../[others]/page";
 import DashboardClient from "../dashboard-client/page";
+import { cookies } from "next/headers";
 
-export const revalidate = 3600 //revalida os dados no máximo a cada hora
+async function getCookieData() {
+  const cookieData = cookies().getAll();
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(cookieData);
+    }, 1000);
+  });
+}
 
 const Dashboard = async () => {
+  const cookieData = await getCookieData();
+  console.log(cookieData);
+
   interface InterfaceDashboard {
     user: { email: string };
   }
