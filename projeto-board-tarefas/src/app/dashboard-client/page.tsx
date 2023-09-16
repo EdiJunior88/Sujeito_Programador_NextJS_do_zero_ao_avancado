@@ -96,7 +96,7 @@ const DashboardClient = ({ user }: InterfaceDashboardClient) => {
   const handleShare = async (id: string) => {
     // console.log(id);
     await navigator.clipboard.writeText(
-      `${process.env.NEXT_PUBLIC_URL}/tasks/${id}`
+      `${process.env.NEXT_PUBLIC_URL}/task/${id}`
     );
 
     alert("URL copiada com sucesso!");
