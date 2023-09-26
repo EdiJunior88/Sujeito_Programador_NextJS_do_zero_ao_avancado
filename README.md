@@ -186,4 +186,4 @@ Board tarefas <a href="https://projeto-board-tarefas-edijunior88.vercel.app/">ht
 <hr>
 
 <h4><b>Aulas:</b> 📼 110 video-aulas (18hrs)</h4>
-<h4><b>Status do Curso:</b> 💭 Estudando</h4>
+<h4><b>Status do Curso:</b> 💤 Pausado (tempo indeterminado)</h4>
