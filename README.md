@@ -182,8 +182,6 @@ Para ver todas as tecnologias [clique aqui](/techstack.md)
 
 Favoritar Repositórios <a href="https://projeto-favoritar-repositorios.vercel.app/">https://projeto-favoritar-repositorios.vercel.app/</a>
 
-Board tarefas <a href="https://projeto-board-tarefas-edijunior88.vercel.app/">https://projeto-board-tarefas-edijunior88.vercel.app/</a>
-
 <hr>
 
 <h3>Status do Deploy</h3>
